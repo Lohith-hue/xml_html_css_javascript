@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="leaflet.css" >
+
+    <!--Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+     crossorigin=""></script>
+
+     <script src="leaflet_script.js"> </script>
+
+     <style>
+     </style>
+</head>
+
+<body>
+    <div class = 'header'>
+        <img id = 'nblogo' src='NBAI_logo.png' alt="NBAI_Logo">
+        <h1 style="text-align: center ; font-family:'Avenir Black'">Map Projection</h1>
+        <img id = 'Cclogo' src = 'Coca-Cola_logo.png' alt="coca-colaimg">
+    </div>
+   
+    <div id="map"></div>
+    
+    <script>
+
+        
+    L.marker([35.657925, 139.7046804], {icon: cokeIcon}).addTo(map).bindPopup('<a href =  >Google Street View</a>'),
+    L.marker([35.6501183, 139.7075611], {icon: kirinIcon}).addTo(map).bindPopup('<a href = >Google Street View</a>');
+
+    var cities = L.layerGroup([coke, kirin]);
+    
+    var grayscale = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> NBAI contributors'}).addTo(map);
+
+    var map = L.map('map', {
+        center: [39.73, -104.99],
+        zoom: 10,
+        layers: [grayscale, cities]
+        });
+
+    var baseMaps = {
+        "Grayscale": grayscale,
+    };
+
+    var overlayMaps = {
+        "Cities": cities
+    };
+
+    //L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    </script>
+
+    <ul>
+        <li> unorderd list one</li>
+        <li> unordered list two</li>
+    </ul>
+
+
+    <ol>
+        <li>ordered list one</li>
+        <li>ordered list one</li>
+    </ol>
+
+    <table>
+        <thead>
+               <tr>
+                <th>amenity</th>
+                <th>brand</th>
+                <th>landmark</th>
+                <th>nearby</th>
+                <th>vending</th>
+                <th>Website</th>
+                <th>Wheelchair</th>
+                <th>covered</th>
+                <th>geometry</th>
+                <th>lon</th>
+                <th>lat</th>
+                <th>google_sv</th>
+               </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>vending_machine</td>
+                <td>Coca-Cola</td>
+                <td>Ramen Nagi Niboshiosh</td>
+                <td>Restaurant</td>
+                <td>drinks</td>
+                <td>https://www.coca-colacompany.com/</td>
+                <td>yes</td>
+                <td>None</td>
+                <td>POINT (139.70468 35.65792)</td>
+                <td>139.704680</td>
+                <td>35.657925</td>
+                <td>https://www.google.com/maps/@35.657925,139.704...</td>
+            </tr>
+        </tbody>
+    </table>
+</body>

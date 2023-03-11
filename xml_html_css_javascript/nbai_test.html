@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+      
+    />
+    <link
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <style>
+      #issMap {
+        height: 180px;
+      }
+
+      #company_name {
+        font-family: 'Andada Pro';font-size: 40px;
+            }
+
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id = "company_name" style="text-align: center;" >NBAI</h1>
+
+    <div>
+      <h1></h1>
+
+    </div>
+
+    <form>
+      <div>
+        <label for="business_name">Name:</label>
+        <input type="text" id="business_name" name="business_name"><br>
+        <label for="Phone_Number">Phone_Number:</label>
+        <input type="text" id="Phone_Number" name="Phone_Number"><br>
+        <label for="Website">Website:</label>
+        <input type="text" id="Website" name="Website"><br>
+
+      <div> 
+        <label for="Address">Address:</label>
+        <input type="text" id="Address" name="Address"><br>
+        <label for="latitude_longitude">latitude,longitude:</label>
+        <input type="text" id="latitude_longitude" name="latitude_longitude" placeholder="latitude,longitude"><br>
+      </div>
+      
+      <label for="Category">Category:</label>
+      <input type="text" id="Category" name="Category"><br>
+      <label for="Business_Hours">Business_Hours:</label>
+      <input type="text" id="Business_Hours" name="Business_Hours"><br>
+      <input type="submit" value="Submit">
+    </form>
+
+
+
+    </form>    
+
+    <table>
+      <tr>
+        <th>name<br></th>
+        <th>Place_Name<br></th>
+        <th>address<br></th>
+        <th>latitude<br></th>
+        <th>longitude<br></th>
+        <th>input<br></th>
+        <th>Translated_output<br></th>
+        <th>mapillary_link<br></th>
+        <th>karta_view_link<br></th>
+      </tr>
+      <tr>
+        <td>Abadi Regency</td>
+        <td>Hotel Provence</td>
+        <td>Isola, Kota Bandung, Jawa Barat, Indonesia</td>
+        <td>-6.8617783</td>
+        <td>107.5852</td>
+        <td>[neneng k suraatmadja, your ride has arrived., Lokasi sudah sesuai, ya., Sy sudah d dpn rmh bu., Halo.])
+          [Tiasa A?., Siap., Di situ ada opang engga enak., Maaf pak maju sedikit ke perumahan abadi regency])
+          [Udh d gerbang abadi regency teh])
+          [Abadi regency no 6., Saya di depan., Go send])
+          [Titik jemput sudah sesuai, ya., Titik jemput sudah sesuai, ya., iya., Titik jemput saya sesuai aplikasi, ya., jalan abadi regency 43 b. no 43 b])
+          [Maaf mas kelewatan., Abadi regency 1 nomer 43A ya])
+          [jemputnya di abadi regency no.1a ya., iya pak pvj samping., Neng pvj samping nya])
+          [No 1a., Di tunggu abadi regency ya pak])
+          [ok tunggu pak., Teh ini udh didepan., Muhun mangga., Teh hujan., no 1 ya pak depan satpam banget])
+          [Ya okey., Titik jemput sudah sesuai, ya])
+          [Saya di pos satpam])
+          [Kesitu., ü§ü., Hadeuuhh., Calya merah., Makasih ya kang., Maafin macet macet jauh., Udah., Lagi jalan., üòÅ., Udh didepan., üòÅ., Klaskson kanb., Jgn lurusckangn mbil g masuk., Aku mau berangkatin barang aja ya., Lampu foto., Jadi aku nya g ikjt pergi., Di telfon susah., Udah gitu yg nerima cowo., Ga semangat cowo soalnya wkwkkwkwkw., Elman namanya., Baiqlah., Sip., Hahshs., Sama2 teteh geulis., Wkwkwkwkwk., Sy udh depan 140., Cewe cowo?., Ditunggu., Masuk parkir., Biar dibukain., PHONENUMBER., Cowo kang., Wait kang])
+          [Otw., Sy sdh di depan 42])
+          [Ya., Rumahnya depan pos., Hujan ga mas., Belum., Mau diambil ga mas])
+          [I'm waiting., Ditunggu., iya gapapa., Titik jemput sudah sesuai, ya., Ka GPP kalo motor nya beda., Titik jemput sesuai aplikasi])]</td>
+        <td>[[Grandma k suraatmadja, your ride has arrived., The location is correct, yes., I have already arrived at Ms.H's house, hello.])
+          [Tiasa A?., Ready., There are opang not good., Sorry, sir, go a little further to the regency eternal housing])
+          [Udh at the eternal gate of the regency of teh])
+          [Abadi regency no 6., I'm in front., Go send])
+          [The pick-up point is correct, yes., The pick-up point is correct, yes., yes., My pick-up point is according to the application, yes., Jalan Abadi Regency 43 b. no 43 b])
+          [Sorry for being late, Abadi regency 1 </td>
+        <td><a href="www.mapillary.com/app/?lat=-6.8617783&lng=107.5852&z=19.9"> Mapilliary</a> </td>
+        <td><a href="https://kartaview.org/map/@-6.8617783,107.5852,22z"> kartaview</a></td>
+      </tr>
+    </table>
+
+    <p>
+      latitude: <span id="lat"></span>°<br />
+      longitude: <span id="lon"></span>°
+    </p>
+
+    <div id="issMap"></div>
+
+    <script>
+      // Making a map and tiles
+      const mymap = L.map('issMap').setView([0, 0], 1);
+      const attribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+      const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      const tiles = L.tileLayer(tileUrl, { attribution });
+      tiles.addTo(mymap);
+
+      // Making a marker with a custom icon
+      const issIcon = L.icon({
+        iconUrl: 'iss200.png',
+        iconSize: [50, 32],
+        iconAnchor: [25, 16]
+      });
+      const marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
+
+      const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+
+      let firstTime = true;
+
+      async function getISS() {
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const { latitude, longitude } = data;
+
+        marker.setLatLng([latitude, longitude]);
+        if (firstTime) {
+          mymap.setView([latitude, longitude], 2);
+          firstTime = false;
+        }
+        document.getElementById('lat').textContent = latitude.toFixed(2);
+        document.getElementById('lon').textContent = longitude.toFixed(2);
+      }
+
+      getISS();
+
+      setInterval(getISS, 1000);
+    </script>
+  </body>
+</html>
